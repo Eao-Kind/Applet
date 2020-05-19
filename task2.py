@@ -24,7 +24,7 @@ def save_single_image(img_path, target, new_name):
 
 def main():
     img_root = "D:\Code\Python\Machine_study\医学图像识别实战\数据\任务2测试数据\Ear-disease"
-    target = 'D:\Code\Python\Machine_study\医学图像识别实战\数据\任务2测试数据\信计2班尹傲14'
+    target = 'D:\Code\Python\Machine_study\医学图像识别实战\数据\任务2测试数据\专业2班XX14'
     if not os.path.exists(target):  # 目录不存在则创建
         os.mkdir(target)
         print("成功创建目录")
