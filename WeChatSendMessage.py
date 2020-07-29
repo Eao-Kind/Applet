@@ -7,7 +7,7 @@ class IamStrong:
     def __init__(self, groupName, sendMessage):
         self.bot = Bot(cache_path=True)  # 机器人登陆微信
         self.mssagelist = ["不谈", "假装睡觉？", "Wubba lubba dub dub", "OK", "ok休息",
-                           "强者", "上当", "没人？", "折磨", "颠倒怪", "慢性自杀", "无敌"]
+                           "强者", "上当", "没人？", "折磨", "颠倒怪", "慢性自杀", "无敌", "起飞"]
         self.groupName = groupName
         self.wxpygroups = self.checkFindGroup(sendMessage=sendMessage)
 
@@ -33,7 +33,7 @@ class IamStrong:
         '''
         :return: 随机信息列表里面的随机一条信息
         '''
-        randommssage = self.mssagelist[random.randint(0, len(self.mssagelist))]  # 获取随机一个消息
+        randommssage = self.mssagelist[random.randint(0, len(self.mssagelist)-1)]  # 获取随机一个消息
         return randommssage
 
     def sendNews(self, sleepTime):
@@ -44,7 +44,7 @@ class IamStrong:
         self.bot.enable_puid()  #
         print("下次发送信息的时间为：" + time.asctime(time.localtime(time.time() + sleepTime)))
         time.sleep(sleepTime)  # 随机停止时间
-        randommssage = getRandomMessage()  # 获取随机信息
+        randommssage = self.getRandomMessage()  # 获取随机信息
         self.wxpygroups.send(randommssage)  # 发送消息
         print("发送消息成功：" + randommssage)
 
@@ -52,11 +52,11 @@ class IamStrong:
 if __name__ == '__main__':
     #send_news()
 
-    groupName = '🍐哥的爬爬虫'
-    mybot = IamStrong(groupName=groupName, sendMessage="又在培训？")  # 初始化 我是强者 自动调用 checkFindGroup 函数
+    groupName = '臭🍐'
+    mybot = IamStrong(groupName=groupName, sendMessage="")  # 初始化 我是强者 自动调用 checkFindGroup 函数
     mybot.wxpygroups.send("")
     for i in range(0, 20, 1):
-        mybot.sendNews(sleepTime=800 + random.randint(100, 1200))  # 根据随机间隔停止时间 发送信息
+        mybot.sendNews(sleepTime=1800 + random.randint(1200, 3600))  # 根据随机间隔停止时间 发送信息
     embed()  # 暂时不退出
 
 
